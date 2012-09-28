@@ -53,7 +53,7 @@ int main(int argc, char **argv)
     {
         // no additional arguments, start Webots with previously opened world
         ROS_INFO("Starting Webots simulator... \n");
-        system(WEBOTS_EXECUTABLE);
+        if (system(WEBOTS_EXECUTABLE)) {}
     } 
     else 
     {
@@ -66,7 +66,7 @@ int main(int argc, char **argv)
 
         std::stringstream ss;
         ss << WEBOTS_EXECUTABLE << " " << argv[1];
-        system( ss.str().c_str() );
+        if (system( ss.str().c_str() )) {}
     }
 
     while (ros::ok())
