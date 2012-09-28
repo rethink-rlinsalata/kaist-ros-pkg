@@ -1,0 +1,18 @@
+<launch>
+
+    <!-- Start USB Joystick eg. XBox -->
+    <node pkg="joy" type="joy_node" name="joy_node" output="screen" respawn="false">
+        <param name="dev" type="string" value="/dev/input/js0" />
+        <!-- Joystick center deadzone, default is 0.05%  0.12  -->
+        <param name="deadzone" value="0.2" /> 
+    </node>
+
+    <!-- Start Webots controller -->
+    <node pkg="webots_joy_demo" type="joystick" name="joy_controller" output="screen" />
+
+    <!-- Start Webots Simulator -->
+    <node pkg="webots_run" type="start_webots" args="$(find webots_joystick)/worlds/joystick.wbt"
+    name="webots" output="screen" />
+
+</launch> 
+

@@ -1,0 +1,319 @@
+#VRML_SIM V6.0 utf8
+WorldInfo {
+  info [
+    "The MyBot robot, the robot used in the tutorial of Webots"
+    "Author: Simon Blanchoud"
+    "Date: 16 AUG 2006"
+  ]
+  title "MyBot"
+  runRealTime TRUE
+}
+Viewpoint {
+  orientation 0.135481 0.963293 0.231759 4.09557
+  position -0.618619 0.298267 -0.399993
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+PointLight {
+  ambientIntensity 0.6
+  attenuation 1 1 1
+  color 0.991276 0.975531 1
+  intensity 0.6
+  location 0.75 0.5 0.5
+  radius 10
+}
+PointLight {
+  ambientIntensity 0.6
+  attenuation 1 1 1
+  color 0.991276 0.975531 1
+  intensity 0.6
+  location -0.5 0.5 0.35
+  radius 10
+}
+PointLight {
+  ambientIntensity 0.6
+  attenuation 1 1 1
+  color 0.991276 0.975531 1
+  intensity 0.6
+  location 0.45 0.5 -0.5
+  radius 10
+}
+PointLight {
+  ambientIntensity 0.6
+  attenuation 1 1 1
+  color 0.991276 0.975531 1
+  intensity 0.6
+  location -0.5 0.5 -0.35
+  radius 10
+}
+DEF FLOOR Transform {
+  translation -0.5 0 -0.5
+  children [
+    Shape {
+      geometry ElevationGrid {
+        color Color {
+          color [
+            1 1 1
+            0 0 0
+          ]
+        }
+        colorPerVertex FALSE
+        xDimension 11
+        xSpacing 0.1
+        zDimension 11
+        zSpacing 0.1
+      }
+    }
+  ]
+}
+DEF WALLS Solid {
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.545098 0.411765 0.0784314
+          specularColor 0.784314 0.588235 0.0980392
+        }
+      }
+      geometry DEF WALL Extrusion {
+        convex FALSE
+        crossSection [
+          0.5 0.5
+          0.5 -0.5
+          -0.5 -0.5
+          -0.5 0.5
+          -0.49 0.5
+          -0.49 -0.49
+          0.49 -0.49
+          0.49 0.49
+          -0.4899 0.49
+          -0.4899 0.5
+          0.5 0.5
+        ]
+        spine [
+          0 0 0
+          0 0.1 0
+        ]
+      }
+    }
+  ]
+  name "wall"
+  boundingObject Group {
+    children [
+      Transform {
+        translation 0.495 0.05 0
+        children [
+          DEF WALL_SHAPE Shape {
+            appearance Appearance {
+              material Material {
+                diffuseColor 1 1 1
+                specularColor 1 1 1
+              }
+            }
+            geometry Box {
+              size 0.01 0.1 1
+            }
+          }
+        ]
+      }
+      Transform {
+        translation -0.495 0.05 0
+        children [
+          USE WALL_SHAPE
+        ]
+      }
+      Transform {
+        translation 0 0.05 0.495
+        rotation 0 1 0 1.57
+        children [
+          USE WALL_SHAPE
+        ]
+      }
+      Transform {
+        translation 0 0.05 -0.495
+        rotation 0 1 0 1.57
+        children [
+          USE WALL_SHAPE
+        ]
+      }
+    ]
+  }
+  locked TRUE
+}
+DEF GREEN_BOX Solid {
+  translation -0.05 0.05 -0.25
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0 1 0
+          specularColor 0.564706 0.933333 0.564706
+        }
+      }
+      geometry DEF BOX0 Box {
+        size 0.23 0.1 0.1
+      }
+    }
+  ]
+  name "green box"
+  boundingObject Shape {
+    appearance Appearance {
+      material Material {
+        diffuseColor 1 1 1
+        specularColor 1 1 1
+      }
+    }
+    geometry USE BOX0
+  }
+}
+DEF BLUE_BOX Solid {
+  translation 0.2 0.05 0.27
+  rotation 0 1 0 0.31
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0 0 1
+          specularColor 0.117647 0.564706 1
+        }
+      }
+      geometry DEF BOX1 Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "blue box"
+  boundingObject Shape {
+    appearance Appearance {
+      material Material {
+        diffuseColor 1 1 1
+        specularColor 1 1 1
+      }
+    }
+    geometry USE BOX1
+  }
+}
+DEF YELLOW_BOX Solid {
+  translation -0.2 0.05 0.15
+  rotation 0 1 0 0.4
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 1 0
+          specularColor 1 1 0.654902
+        }
+      }
+      geometry DEF BOX2 Box {
+        size 0.05 0.1 0.3
+      }
+    }
+  ]
+  name "yellow box"
+  boundingObject Shape {
+    appearance Appearance {
+      material Material {
+        diffuseColor 1 1 1
+        specularColor 1 1 1
+      }
+    }
+    geometry USE BOX2
+  }
+}
+DEF PINK_BOX Solid {
+  translation 0.42 0.05 -0.1
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0.1 0.3
+          specularColor 1 0.752941 0.796078
+        }
+      }
+      geometry DEF BOX3 Box {
+        size 0.15 0.1 0.08
+      }
+    }
+  ]
+  name "red box"
+  boundingObject Shape {
+    appearance Appearance {
+      material Material {
+        diffuseColor 1 1 1
+        specularColor 1 1 1
+      }
+    }
+    geometry USE BOX3
+  }
+}
+DifferentialWheels {
+  translation -0.00844467 0 -0.0241461
+  rotation 0 1 0 1.49934
+  children [
+    Transform {
+      translation 0 0.0415 0
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.0820075 0.364731 0.8
+            }
+          }
+          geometry DEF BODY Cylinder {
+            height 0.08
+            radius 0.045
+          }
+        }
+      ]
+    }
+    Solid {
+      translation -0.045 0.025 0
+      rotation 1 0 0 0
+      children [
+        DEF WHEEL Transform {
+          rotation 0 0 1 1.57
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 1 0 0
+                }
+              }
+              geometry Cylinder {
+                height 0.01
+                radius 0.025
+              }
+            }
+          ]
+        }
+      ]
+      name "left wheel"
+    }
+    Solid {
+      translation 0.045 0.025 0
+      rotation 1 0 0 0
+      children [
+        USE WHEEL
+      ]
+      name "right wheel"
+    }
+    Shape {
+      appearance Appearance {
+      }
+    }
+  ]
+  name "MyBot"
+  boundingObject Transform {
+    translation 0 0.0415 0
+    children [
+      USE BODY
+    ]
+  }
+  controller "joystick"
+  axleLength 0.09
+  wheelRadius 0.025
+  speedUnit 0.1
+}
