@@ -17,6 +17,7 @@ for controlling a simulated robot.
   <depend package="std_msgs"/>
   <depend package="roscpp"/>
   <depend package="joy"/>
+  <depend package="webots_run">
 
 </package>
 
