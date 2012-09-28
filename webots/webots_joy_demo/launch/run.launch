@@ -11,7 +11,7 @@
     <node pkg="webots_joy_demo" type="joystick" name="joy_controller" output="screen" />
 
     <!-- Start Webots Simulator -->
-    <node pkg="webots_run" type="start_webots" args="$(find webots_joystick)/worlds/joystick.wbt"
+    <node pkg="webots_run" type="start_webots" args="$(find webots_joy_demo)/worlds/joystick.wbt"
     name="webots" output="screen" />
 
 </launch> 
