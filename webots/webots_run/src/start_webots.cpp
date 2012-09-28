@@ -39,8 +39,8 @@ Webots command line arguments:
    (http://www.cyberbotics.com/dvd/common/doc/webots/guide/section2.2.html)
 */
 
-//#define WEBOTS_EXECUTABLE "webots"
-#define WEBOTS_EXECUTABLE "optirun webots --mode=run"
+#define WEBOTS_EXECUTABLE "webots"
+//#define WEBOTS_EXECUTABLE "optirun webots --mode=run"
 
 //----------------------------------------------------------------------------//
 
