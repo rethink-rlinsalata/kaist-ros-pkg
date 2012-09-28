@@ -3,16 +3,12 @@ include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
 
 rosbuild_init()
 
-
-
-
+# if not defined, set WEBOTS_HOME environment variable to default value
 if (DEFINED ENV{WEBOTS_HOME})
     set(WEBOTS_HOME $ENV{WEBOTS_HOME})
 else()
-    #set(WEBOTS_HOME $ENV{WEBOTS_HOME})
     set(WEBOTS_HOME /usr/local/webots)
 endif()
-
 
 # Webots includes
 add_definitions(-I${WEBOTS_HOME}/include/controller/cpp -I${WEBOTS_HOME}/include -Wall -I${WEBOTS_HOME}/include/controller/c -DLINUX)
