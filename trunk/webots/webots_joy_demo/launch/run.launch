@@ -8,11 +8,11 @@
     </node>
 
     <!-- Start Webots controller -->
-    <node pkg="webots_joy_demo" type="joystick" name="joy_controller" output="screen" />
+    <!-- The controller binary is defined in the Webots *.wbt world file and will be automatically
+         started when the simulator is executed by the 'webots_run' node.                           -->
 
     <!-- Start Webots Simulator -->
     <node pkg="webots_run" type="start_webots" args="$(find webots_joy_demo)/worlds/joystick.wbt"
     name="webots" output="screen" />
 
-</launch> 
-
+</launch>
