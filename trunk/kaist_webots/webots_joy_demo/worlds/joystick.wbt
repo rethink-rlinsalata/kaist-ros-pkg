@@ -5,7 +5,7 @@ WorldInfo {
     "Author: Simon Blanchoud"
     "Date: 16 AUG 2006"
   ]
-  title "MyBot"
+  title "ROS Joystick Controller demo"
   runRealTime TRUE
 }
 Viewpoint {
@@ -312,7 +312,7 @@ DifferentialWheels {
       USE BODY
     ]
   }
-  controller "joystick"
+  controller "joy_controller"
   axleLength 0.09
   wheelRadius 0.025
   speedUnit 0.1

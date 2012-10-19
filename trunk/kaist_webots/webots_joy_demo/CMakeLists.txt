@@ -10,14 +10,28 @@ else()
     set(WEBOTS_HOME /usr/local/webots)
 endif()
 
+
+##
+## Build configuration for a Webots controller using the C++ API:
+## 
+
 # Webots includes
-add_definitions(-I${WEBOTS_HOME}/include/controller/cpp -I${WEBOTS_HOME}/include -Wall -I${WEBOTS_HOME}/include/controller/c -DLINUX)
+add_definitions(-I${WEBOTS_HOME}/include/controller/cpp -I${WEBOTS_HOME}/include -Wall -DLINUX)
 
-# Set default path for built executable to the "controllers/joystick" directory
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/controllers/joystick)
-rosbuild_add_executable(joystick src/joystick.cpp)
+# Put the built executable in the "controllers/joystick" directory to suit Webots,
+# instead of the default "bin" directory for ROS
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/controllers/joy_controller)
+rosbuild_add_executable(joy_controller src/webots_joystick_controller.cpp)
 
-# Link executable to Webots Controller Library
-find_library(CONTROLLER_LIBRARY Controller ${WEBOTS_HOME}/lib)
-target_link_libraries(joystick ${CONTROLLER_LIBRARY})
+# Link executable to Webots C++ Controller Library
+find_library(CONTROLLER_LIBRARY CppController ${WEBOTS_HOME}/lib)
+target_link_libraries(joy_controller ${CONTROLLER_LIBRARY})
+
+##
+## If you want to use only the Webots C Functions, you need to change the include
+## path and library linking:
+##
+#add_definitions(-I${WEBOTS_HOME}/include/controller/c -I${WEBOTS_HOME}/include -Wall -DLINUX)
+#find_library(CONTROLLER_LIBRARY Controller ${WEBOTS_HOME}/lib)
+
 

@@ -1,15 +1,15 @@
 <package>
-  <description brief="Webots ROS joystick interface">
+  <description brief="Webots joystick controller demo for ROS">
+This is an example of a Webots Controller written in C++, running as a ROS Node. 
+It demonstrates how to build a ROS package linked against the Webots CppLibrary, control a robot using ROS messages, and start the simulation from a single launch file.
 
-This sample ROS node is a Webots robot controller.
-It subscribes to the 'joy' topic to read the input from a joystick. 
-This input is used to drive a simulated robot in Webots.
+The 'joy' node from the 'joystick_drivers' stack receives input from a USB joystick and publishes the state of the buttons and axes on the '/joy' topic.
+This node uses that input to drive a simple simulated robot in Webots.
+Speed commands are sent to the DifferentialDrive model using the Webots C++ API.
 
-It is a good starting point to implement an interface between ROS and Webots, 
-for controlling a simulated robot.
-
+Tested with Webots 6.4.4, ROS Fuerte and Microsoft Xbox-360 joystick.
   </description>
-  <author>Andreas Breitenmoser, Olivier Michel, David Butterworth</author>
+  <author>David Butterworth. Based on work by Andreas Breitenser and Olivier Michel.</author>
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/webots_joy_demo</url>
