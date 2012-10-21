@@ -32,6 +32,10 @@
 // needs to be a multiple of basicTimeStep, the simulation update rate defined in the Webots world file
 #define TIME_STEP 32 // Default is 32
 
+// Note:
+// printf() is used instead of ROS_INFO, ROS_WARN, etc. because the output goes to the Webots console.
+// If you want to use ROS logging, you can change this and set the environment variable in the launch file.
+
 // Controller class:
 // derives from the same class as used in the Webots Scene Tree: Robot, DifferentialWheels or Supervisor
 class WebotsJoystickController : public webots::DifferentialWheels
@@ -40,7 +44,7 @@ class WebotsJoystickController : public webots::DifferentialWheels
         // Constructor
         WebotsJoystickController();
 
-        // Control loop
+        // Run control loop
         void run(void);
 
     private:
@@ -77,16 +81,16 @@ WebotsJoystickController::WebotsJoystickController() :
 void WebotsJoystickController::run(void)
 {
     // Helpful info, will be displayed in Webots console
-    ROS_INFO("Joypad connected and running.");
+    printf("Joypad connected and running. \n");
 
-    ROS_INFO("Commands:");
-    ROS_INFO("  arrow up    = move forward");
-    ROS_INFO("  arrow down  = move backward");
-    ROS_INFO("  arrow left  = rotate left");
-    ROS_INFO("  arrow right = rotate right");
-    ROS_INFO("  button 1    = stop");
+    printf("Commands: \n");
+    printf("  arrow up    = move forward \n");
+    printf("  arrow down  = move backward \n");
+    printf("  arrow left  = rotate left \n");
+    printf("  arrow right = rotate right \n");
+    printf("  button 1    = stop \n");
  
-    ROS_INFO("Robot speed: %d \n", (int)k_speed_ );
+    printf("Robot speed: %d \n", (int)k_speed_ );
 
     // Main control loop: runs every TIME_STEP ms
     while(step(TIME_STEP) != -1) {

@@ -18,7 +18,7 @@ endif()
 # Webots includes
 add_definitions(-I${WEBOTS_HOME}/include/controller/cpp -I${WEBOTS_HOME}/include -Wall -DLINUX)
 
-# Put the built executable in the "controllers/joystick" directory to suit Webots,
+# Put the built executable in the "controllers/joy_controller" directory to suit Webots,
 # instead of the default "bin" directory for ROS
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/controllers/joy_controller)
 rosbuild_add_executable(joy_controller src/webots_joystick_controller.cpp)
