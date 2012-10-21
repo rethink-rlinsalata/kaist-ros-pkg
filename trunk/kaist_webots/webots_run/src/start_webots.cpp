@@ -39,7 +39,7 @@ Webots command line arguments:
    (http://www.cyberbotics.com/dvd/common/doc/webots/guide/section2.2.html)
 */
 
-#define WEBOTS_EXECUTABLE "webots"
+#define WEBOTS_EXECUTABLE "webots --mode=run"
 //#define WEBOTS_EXECUTABLE "optirun webots --mode=run"
 
 //----------------------------------------------------------------------------//
@@ -69,10 +69,10 @@ int main(int argc, char **argv)
         if (system( ss.str().c_str() )) {}
     }
 
-    while (ros::ok())
-    {
-        ros::spin();
-    }
+    // No need to ros::spin()
+    // When we quit Webots, ROS will register
+    // that the webots node is shutting down.
+
     return 0;
 }
 

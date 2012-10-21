@@ -2,7 +2,7 @@
 
     <!-- Run the 'start_webots' executable from the 'webots_run' package, node name 'webots' -->
     <node pkg="webots_run" type="start_webots" args="$(find webots_run)/worlds/test_world.wbt"
-    name="webots" output="screen" />
+    name="webots" output="screen" required="true" />
 
 </launch> 
 

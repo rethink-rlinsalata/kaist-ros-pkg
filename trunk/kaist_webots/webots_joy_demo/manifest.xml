@@ -13,7 +13,6 @@ Tested with Webots 6.4.4, ROS Fuerte and Microsoft Xbox-360 joystick.
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/webots_joy_demo</url>
-  <rosdep name="webots"/>
   <depend package="std_msgs"/>
   <depend package="roscpp"/>
   <depend package="joy"/>
