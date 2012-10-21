@@ -7,7 +7,8 @@
     <!-- Set value=1 to make all program output go to shell console -->
     <!-- <env name="WEBOTS_STDOUT" value = "1" /> -->
 
-    <!-- Note: there is currently a bug where Webots does not recognize if these variables are set to zero -->
+    <!-- Note: there is a bug where Webots 6.4.4 does not recognize if these variables are set to zero.
+         You should comment them out and start a new console session. -->
 
     <!-- Start USB Joystick eg. XBox -->
     <node pkg="joy" type="joy_node" name="joy_node" output="screen" respawn="false" required="true">
