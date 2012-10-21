@@ -1,7 +1,7 @@
 <package>
   <description brief="Start Webots from ROS">
 Starts the <a href="http://www.cyberbotics.com">Webots</a> Simulator using a system() call, so Webots can be run directly from a roslaunch file.
-The Webots world file is specified from the launch file.
+The Webots world file is specified as an argument in the launch file.
 
 Tested with Webots 6.4.4 and ROS Fuerte.
   </description>
