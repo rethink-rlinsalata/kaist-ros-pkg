@@ -158,7 +158,7 @@ void WebotsJointPositionController::run(void)
         float position_delta;
         float velocity = 0.0;
         double goal_position = 0.0;
-        float force = 0.0;
+        //float force = 0.0;
         for(std::vector <std::vector <std::string> >::iterator joint_list_iterator = joint_list_.begin(); 
                                                           joint_list_iterator!=joint_list_.end(); joint_list_iterator++) 
         {
