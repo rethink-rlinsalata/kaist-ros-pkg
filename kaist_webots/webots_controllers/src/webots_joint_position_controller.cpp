@@ -125,9 +125,10 @@ void WebotsJointPositionController::run(void)
     getJointParams();
 
     initializePublishers();
-    initializeSubscribers();
 
     printf("Attempting to start %d controllers... \n", joint_list_.size() );
+    initializeSubscribers();
+
     printf("Controller step time = %d ms  \n", TIME_STEP );
 
     // Main control loop: runs every TIME_STEP ms
