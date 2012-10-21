@@ -5,7 +5,7 @@ It demonstrates how to build a ROS package linked against the Webots CppLibrary,
 
 The 'joy' node from the 'joystick_drivers' stack receives input from a USB joystick and publishes the state of the buttons and axes on the '/joy' topic.
 This node uses that input to drive a simple simulated robot in Webots.
-Speed commands are sent to the DifferentialDrive model using the Webots C++ API.
+Speed commands are sent to the differential drive model using the Webots C++ API.
 
 Tested with Webots 6.4.4, ROS Fuerte and Microsoft Xbox-360 joystick.
   </description>

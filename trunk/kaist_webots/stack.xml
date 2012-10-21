@@ -1,7 +1,8 @@
 <stack>
   <description brief="Webots">
 This stack contains some tools for using ROS with the <a href="http://www.cyberbotics.com">Webots</a> commercial simulation software.
-It includes nodes for starting Webots directly from a ROS launch file, a controller for joystick tele-operation, and a joint position controller and joint state publisher that can be quickly adapted to any joint-based robot. These controllers utilise the Webots C++ API.
+
+It includes nodes for starting Webots directly from a ROS launch file, a controller for joystick tele-operation, and a joint position controller with joint state publisher that can be quickly adapted to any joint-based robot. These controllers utilise the Webots C++ API.
 
 Tested with Webots 6.4.4 and ROS Fuerte.
   </description>
