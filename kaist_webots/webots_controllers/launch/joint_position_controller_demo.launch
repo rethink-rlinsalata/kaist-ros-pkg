@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- Set value=1 to make errors print to shell console instead of Webots console -->
+    <!-- <env name="WEBOTS_STDERR" value="1" /> -->
+
+    <!-- Set value=1 to make all program output go to shell console -->
+    <!-- <env name="WEBOTS_STDOUT" value = "1" /> -->
+
+    <!-- Note: there is a bug where Webots 6.4.4 does not recognize if these variables are set to zero.
+         You should comment them out and start a new console session. -->
+
+    <!-- Load the robot controller configuration. 
+         This contains each:
+          - controller name
+          - joint (servo) name in the Webots model
+          - controller PID settings   -->
+    <rosparam command="load" file="$(find webots_controllers)/config/puma560_controllers.yaml" />
+    <!-- Specify which controllers you want to load.
+         This allows you to keep multiple configurations. -->
+    <rosparam>
+        webots_controllers_to_load:
+         - Puma560/SimController/waist
+         - Puma560/SimController/shoulder
+         - Puma560/SimController/elbow
+         - Puma560/SimController/roll
+         - Puma560/SimController/pitch
+         - Puma560/SimController/flange
+    </rosparam>
+    <!-- Note: global ROS parameters are used because this launch file spawns the 'webots_run' node,
+         but the actual joint controller node is launched by the Webots simulator. -->
+
+    <!-- No need to launch Webots controller node.
+         The controller binary is defined in the Webots *.wbt world file and will be automatically
+         started when the simulator is executed by the 'webots_run' node. -->
+
+    <!-- Start Webots Simulator -->
+    <node pkg="webots_run" type="start_webots" args="$(find webots_controllers)/worlds/puma560arm.wbt"
+    name="webots" output="screen" required="true" />
+
+    <!-- Start Robot State Publisher node, publishes tf frames -->
+    <!--
+    <node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher">
+        <param name="publish_frequency" type="double" value="50.0" />
+        <param name="tf_prefix" type="string" value="" />
+    </node>
+    -->
+
+</launch> 
+

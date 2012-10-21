@@ -1,0 +1,58 @@
+# This configuration file is loaded onto the ROS parameter server
+# and the parameters are read by the joint_position_controller node.
+#
+# The controller name:
+# eg. "Puma560/SimController/waist"
+# This is used to specify which controllers to load
+# from the launch file. It is also the path to the ROS topic used for sending
+# commands to the joint.
+#  
+# Type:
+# Currently un-used, this would be used to implement a controller manager/spawner
+#
+# Joint:
+# The name of the joint's servo in Webots
+#
+# P:
+# The P constant for simple Webots position control. The default value of
+# 'controlP' in Webots is 10
+#
+
+Puma560/SimController/waist:
+  type: webots_controllers/joint_position_controller
+  joint: joint1
+  pid:
+    p: 10.0
+
+Puma560/SimController/shoulder:
+  type: webots_controllers/joint_position_controller
+  joint: joint2
+  pid:
+    p: 10.0
+
+Puma560/SimController/elbow:
+  type: webots_controllers/joint_position_controller
+  joint: joint3
+  pid:
+    p: 10.0
+
+Puma560/SimController/roll:
+  type: webots_controllers/joint_position_controller
+  joint: joint4
+  pid:
+    p: 10.0
+
+Puma560/SimController/pitch:
+  type: webots_controllers/joint_position_controller
+  joint: joint5
+  pid:
+    p: 10.0
+
+Puma560/SimController/flange:
+  type: webots_controllers/joint_position_controller
+  joint: joint6
+  pid:
+    p: 10.0
+
+
+

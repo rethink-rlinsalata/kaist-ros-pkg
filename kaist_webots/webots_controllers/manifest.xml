@@ -1,0 +1,22 @@
+<package>
+  <description brief="Webots controllers for ROS">
+The idea behind this package was to create a controller manager for Webots, similar to what is available for Gazebo. This would enable users to
+easily test different position/velocity/force controllers with their simulation.
+
+The launch file loads the 'webots_run' node which opens the specified world file in the Webots simulator, which in turn executes the controller binary.
+
+At present, only a stand-alone P-controller has been implemented: joint_position_controller. The controller configuration is defined in a yaml file and this allows users to quickly implement a controller to test their new model. Position commands are received on a ROS topic for each joint, and position and velocity feedback is published on the /joint_states topic.
+
+Tested with Webots 6.4.4, ROS Fuerte.
+  </description>
+  <author>David Butterworth</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/webots_controllers</url>
+  <depend package="std_msgs"/>
+  <depend package="roscpp"/>
+  <depend package="webots_run"/>
+
+</package>
+
+
