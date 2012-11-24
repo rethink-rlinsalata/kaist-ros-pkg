@@ -1,3 +1,7 @@
 - svn:
     uri: https://kaist-ros-pkg.googlecode.com/svn/trunk/kaist_webots
     local-name: kaist_webots
+- svn:
+    uri: https://kaist-ros-pkg.googlecode.com/svn/trunk/arm_kinematics_test
+    local-name: arm_kinematics_test
+

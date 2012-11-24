@@ -1,0 +1,7 @@
+<launch>
+
+    <node pkg="arm_kinematics_test" type="get_ik" name="get_ik_test" output="screen">
+        <param name="kinematics_service_name" value="myrobot_manipulator_kinematics" />
+    </node>
+
+</launch>
