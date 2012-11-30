@@ -1,0 +1,21 @@
+<package>
+  <description brief="arm_kinematics_tools">
+Contains some useful tools for creating and testing your own arm kinematics package.
+You can test various kinematics solvers: Newton-Raphson, KDL, IKFast
+Rviz and a fake joint state publisher allows you to easily position your robot in various configurations and validate the solution.
+  </description>
+  <author>David Butterworth</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/arm_kinematics_tools</url>
+  <depend package="roscpp"/>
+  <depend package="kinematics_base"/>
+  <depend package="kinematics_msgs"/>
+  <depend package="urdf"/>
+  <depend package="pluginlib"/>
+  <depend package="tf_conversions"/>
+  <depend package="kdl_parser"/>
+  <depend package="arm_kinematics_constraint_aware"/>
+</package>
+
+
