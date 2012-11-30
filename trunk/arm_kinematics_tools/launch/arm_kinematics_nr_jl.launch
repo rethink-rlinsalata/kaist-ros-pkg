@@ -1,0 +1,26 @@
+<launch>
+
+<!-- YOU NEED TO CHANGE  MYROBOT  NAME TO POINT TO YOUR PACKAGES -->
+
+   <!-- Robot description -->
+   <param name="robot_description" command="$(find xacro)/xacro.py '$(find MYROBOT_description)/urdf/MYROBOT.urdf.xacro'" />
+
+   <!-- Provide GUI control of the robot joint angles -->
+   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+   <param name="/use_gui" value="True" />
+
+   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+      <param name="publish_frequency" value="20.0"/>
+   </node>>
+
+   <!-- Load the kinematics node
+        calculates FK/IK between tip and root links -->
+   <node name="myrobot_manipulator_kinematics" pkg="arm_kinematics_tools" type="arm_kinematics_nr_jl" output="screen">
+      <param name="kinematics_service_name" value="myrobot_manipulator_kinematics" />
+      <param name="manipulator/root_name" value="Mounting_link" />
+      <param name="manipulator/tip_name" value="Tool_link" />
+      <param name="maxIterations" value="1000" />   <!-- default is 1000 -->
+      <param name="epsilon" value="0.001" />   <!-- default is 0.01 but this produces better results -->
+   </node>
+
+</launch>
