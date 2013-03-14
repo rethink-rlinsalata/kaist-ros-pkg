@@ -179,7 +179,7 @@ namespace _ROBOT_NAME___GROUP_NAME__kinematics
 
     private:
 
-      bool initialize(const std::string& group_name, const std::string& base_name, const std::string& tip_name, double search_discretization);
+      bool initialize(const std::string& robot_description, const std::string& group_name, const std::string& base_name, const std::string& tip_name, double search_discretization);
 
       /**
        * @brief Calls the IK solver from IKFast
@@ -201,12 +201,13 @@ namespace _ROBOT_NAME___GROUP_NAME__kinematics
 
   }; // end class
 
-  bool IKFastKinematicsPlugin::initialize(const std::string& group_name,
+  bool IKFastKinematicsPlugin::initialize(const std::string& robot_description,
+                                          const std::string& group_name,
                                           const std::string& base_name,
                                           const std::string& tip_name,
                                           double search_discretization) 
   {
-    setValues(group_name, base_name, tip_name,search_discretization);
+    setValues(robot_description, group_name, base_name, tip_name,search_discretization);
 
     ros::NodeHandle node_handle("~/"+group_name);
 
