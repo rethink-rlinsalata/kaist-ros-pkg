@@ -1,0 +1,1 @@
+This repository contains the ROS packages from research of the labs at KAIST (Korean Advanced Institute of Science & Technology) in Daejeon, Republic of Korea
